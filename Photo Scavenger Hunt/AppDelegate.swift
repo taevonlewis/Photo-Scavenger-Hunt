@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Photo Scavenger Hunt
 //
-//  Created by TizzyMatic on 3/10/23.
+//  Created by TaeVon Lewis on 3/14/23.
 //
 
 import UIKit
