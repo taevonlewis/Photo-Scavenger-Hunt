@@ -2,7 +2,7 @@
 
 Submitted by: **TaeVon Lewis**
 
-**Photo Scavenger Hunt** is an app that
+**Photo Scavenger App** is an engaging iOS application designed for users to participate in a scavenger hunt, which involves completing a list of tasks by attaching photos corresponding to each task. The app provides an interactive experience by displaying the location of the attached photos on a map. The application is built using advanced technologies like PHPicker for selecting photos and MapKit for map integration.
 
 Time spent: **1** hour spent in total
 
@@ -24,7 +24,7 @@ The following **optional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src= title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src=https://user-images.githubusercontent.com/65370736/225680711-aaffc35b-82ea-47e4-ace5-d62983010e6c.gif title="Video Walkthrough" width=800 alt="Video Walkthrough" />
 
 ## License
 
