@@ -34,6 +34,7 @@
 		B3E50E9029C13464002C0BAB /* TaskAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskAnnotationView.swift; sourceTree = "<group>"; };
 		B3E50E9329C134BD002C0BAB /* TaskComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskComposeViewController.swift; sourceTree = "<group>"; };
 		B3E50E9629C134F9002C0BAB /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
+		B3E50EB529C37413002C0BAB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +51,7 @@
 		B3E50E6B29BBDA52002C0BAB = {
 			isa = PBXGroup;
 			children = (
+				B3E50EB529C37413002C0BAB /* README.md */,
 				B3E50E7629BBDA52002C0BAB /* Photo Scavenger Hunt */,
 				B3E50E7529BBDA52002C0BAB /* Products */,
 			);
