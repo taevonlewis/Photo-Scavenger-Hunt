@@ -16,7 +16,7 @@ class TaskCell: UITableViewCell {
         titleLabel.text = task.title
         titleLabel.textColor = task.isComplete ? .secondaryLabel : .label
         completedImageView.image = UIImage(systemName: task.isComplete ? "circle.inset.filled" : "circle")?.withRenderingMode(.alwaysTemplate)
-        completedImageView.tintColor = task.isComplete ? .systemRed : .tertiaryLabel
+        completedImageView.tintColor = task.isComplete ? .systemGreen : .tertiaryLabel
         completedImageView.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
     }
     

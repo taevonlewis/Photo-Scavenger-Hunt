@@ -43,7 +43,7 @@ class TaskDetailViewController: UIViewController {
         completedImageView.image = completedImage?.withRenderingMode(.alwaysTemplate)
         completedLabel.text = task.isComplete ? "Complete" : "Incomplete"
         
-        let color: UIColor = task.isComplete ? .systemBlue : .tertiaryLabel
+        let color: UIColor = task.isComplete ? .systemGreen : .tertiaryLabel
         completedImageView.tintColor = color
         completedLabel.textColor = color
         
