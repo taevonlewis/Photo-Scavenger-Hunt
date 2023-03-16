@@ -33,8 +33,8 @@ extension Task {
         return [
             Task(title: "Show light novels",
                  description: "Show my friends all of my light novels."),
-            Task(title: "Take a pic of a terrible hairstyle",
-                 description: "I know my hair looks wacky right now. I should take a pic for memories!"),
+            Task(title: "Take a pic of my new shoes",
+                 description: "My mom asked for a picture of the new shoes I bought."),
             Task(title: "Turn on the candle wax machine",
                  description: "Make the room smell nice!")
         ]
