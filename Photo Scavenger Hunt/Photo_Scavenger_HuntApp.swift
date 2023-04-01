@@ -11,7 +11,7 @@ import SwiftUI
 struct Photo_Scavenger_HuntApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TaskListView()
         }
     }
 }
