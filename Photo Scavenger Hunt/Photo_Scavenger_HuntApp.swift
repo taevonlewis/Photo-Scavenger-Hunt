@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct Photo_Scavenger_HuntApp: App {
+    @StateObject private var taskViewModel = TaskViewModel()
     var body: some Scene {
         WindowGroup {
             TaskListView()
+                .environmentObject(taskViewModel)
         }
     }
 }
