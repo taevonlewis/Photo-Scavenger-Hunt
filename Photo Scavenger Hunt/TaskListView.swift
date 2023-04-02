@@ -15,7 +15,7 @@ struct TaskListView: View {
             List {
                 ForEach(tasks) { task in
                     ZStack {
-                        NavigationLink(destination: Text("placeholder")) {
+                        NavigationLink(destination: TaskListDetailView(task: task)) {
                             EmptyView()
                         }
                         .opacity(0)
@@ -23,7 +23,7 @@ struct TaskListView: View {
                         HStack {
                             Text(task.title)
                             Spacer()
-                            Image(systemName: task.isComplete ? "circle.fill" : "circle" )
+                            Image(systemName: task.isComplete ? "circle.inset.fill" : "circle" )
                                 .foregroundColor(task.isComplete ? .green : .primary)
                         }
                     }
