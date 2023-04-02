@@ -7,24 +7,31 @@
 
 import SwiftUI
 
+class TaskViewModel: ObservableObject {
+    @Published var tasks: [Task] = Task.mockedTasks
+}
+
 struct TaskListView: View {
-    let tasks: [Task] = Task.mockedTasks
+    @EnvironmentObject var taskViewModel: TaskViewModel
     
     var body: some View {
         NavigationView {
             List {
-                ForEach(tasks) { task in
+                ForEach(Array(taskViewModel.tasks.indices), id: \.self) { index in
                     ZStack {
-                        NavigationLink(destination: TaskListDetailView(task: task)) {
+                        NavigationLink(destination: TaskListDetailView(task: $taskViewModel.tasks[index])) {
                             EmptyView()
                         }
                         .opacity(0)
                         
                         HStack {
-                            Text(task.title)
+                            Text(taskViewModel.tasks[index].title)
                             Spacer()
-                            Image(systemName: task.isComplete ? "circle.inset.fill" : "circle" )
-                                .foregroundColor(task.isComplete ? .green : .primary)
+                            Image(systemName: taskViewModel.tasks[index].isComplete ? "circle.fill" : "circle" )
+                                .foregroundColor(taskViewModel.tasks[index].isComplete ? .green : .primary)
+                                .onReceive(taskViewModel.tasks[index].$isComplete, perform: { _ in
+                                    taskViewModel.objectWillChange.send()
+                                })
                         }
                     }
                 }
@@ -35,6 +42,7 @@ struct TaskListView: View {
         }
     }
 }
+
 
 struct TaskListView_Previews: PreviewProvider {
     static var previews: some View {
