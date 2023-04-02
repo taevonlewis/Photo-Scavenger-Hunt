@@ -11,6 +11,7 @@
 		B3A5321029D8B203008B27D9 /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A5320F29D8B203008B27D9 /* TaskListView.swift */; };
 		B3A5321229D8B204008B27D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3A5321129D8B204008B27D9 /* Assets.xcassets */; };
 		B3A5321529D8B204008B27D9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3A5321429D8B204008B27D9 /* Preview Assets.xcassets */; };
+		B3A5321D29D941D9008B27D9 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A5321C29D941D9008B27D9 /* Task.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		B3A5320F29D8B203008B27D9 /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
 		B3A5321129D8B204008B27D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B3A5321429D8B204008B27D9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B3A5321C29D941D9008B27D9 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 		B3A5320C29D8B203008B27D9 /* Photo Scavenger Hunt */ = {
 			isa = PBXGroup;
 			children = (
+				B3A5321B29D941C6008B27D9 /* Models */,
 				B3A5320D29D8B203008B27D9 /* Photo_Scavenger_HuntApp.swift */,
 				B3A5320F29D8B203008B27D9 /* TaskListView.swift */,
 				B3A5321129D8B204008B27D9 /* Assets.xcassets */,
@@ -65,6 +68,14 @@
 				B3A5321429D8B204008B27D9 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B3A5321B29D941C6008B27D9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B3A5321C29D941D9008B27D9 /* Task.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3A5321029D8B203008B27D9 /* TaskListView.swift in Sources */,
+				B3A5321D29D941D9008B27D9 /* Task.swift in Sources */,
 				B3A5320E29D8B203008B27D9 /* Photo_Scavenger_HuntApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
