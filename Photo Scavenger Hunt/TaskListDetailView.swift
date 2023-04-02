@@ -26,20 +26,19 @@ struct TaskListDetailView: View {
                 Text(task.description)
                     .font(.body)
             }
-            Button {
-                print("button presssed")
-            } label: {
+            Button(action: {
+                
+                }, label: {
                 Text("Attach Photo")
                     .foregroundColor(.white)
                     .font(.body)
                     .frame(maxWidth: .infinity)
-                    .padding(.init(top: 5, leading: 0, bottom: 5, trailing: 0))
+                    .padding(.init(top: 7, leading: 0, bottom: 7, trailing: 0))
                     .background(RoundedRectangle(cornerRadius: 4))
             }
-            .padding()
-        }
+        )}
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
-        .padding()
+        .padding(.init(top: 10, leading: 25, bottom: 10, trailing: 25))
     }
 }
 
