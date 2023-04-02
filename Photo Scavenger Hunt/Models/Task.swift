@@ -9,7 +9,8 @@ import SwiftUI
 import CoreLocation
 import CoreGraphics
 
-struct Task {
+struct Task: Identifiable {
+    let id = UUID()
     let title: String
     let description: String
     private(set) var image: CGImage?

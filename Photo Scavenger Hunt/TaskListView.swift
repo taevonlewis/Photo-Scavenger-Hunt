@@ -8,14 +8,31 @@
 import SwiftUI
 
 struct TaskListView: View {
+    let tasks: [Task] = Task.mockedTasks
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationView {
+            List {
+                ForEach(tasks) { task in
+                    ZStack {
+                        NavigationLink(destination: Text("placeholder")) {
+                            EmptyView()
+                        }
+                        .opacity(0)
+                        
+                        HStack {
+                            Text(task.title)
+                            Spacer()
+                            Image(systemName: task.isComplete ? "circle.fill" : "circle" )
+                                .foregroundColor(task.isComplete ? .green : .primary)
+                        }
+                    }
+                }
+            }
+            .listStyle(.plain)
+            .navigationTitle("Tasks")
+            .navigationBarTitleDisplayMode(.inline)
         }
-        .padding()
     }
 }
 
