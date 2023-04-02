@@ -9,22 +9,27 @@ import SwiftUI
 import CoreLocation
 import CoreGraphics
 
-struct Task: Identifiable {
+class Task: ObservableObject, Identifiable {
     let id = UUID()
     let title: String
     let description: String
-    private(set) var image: CGImage?
+    @Published public internal(set) var image: CGImage?
     private(set) var imageLocation: CLLocation?
-    var isComplete: Bool {
-        image != nil
+    @Published var isComplete: Bool {
+        didSet {
+            if image == nil {
+                isComplete = false
+            }
+        }
     }
     
     init(title: String, description: String) {
         self.title = title
         self.description = description
+        self.isComplete = false
     }
     
-    mutating func set(_ image: CGImage, with location: CLLocation) {
+    func set(_ image: CGImage, with location: CLLocation) {
         self.image = image
         self.imageLocation = location
     }
