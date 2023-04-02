@@ -9,9 +9,8 @@ import SwiftUI
 import PhotosUI
 
 struct TaskListDetailView: View {
-    @ObservedObject var task: Task
+    @Binding var task: Task
     @State private var showingPhotoPicker = false
-    @State private var selectedImage: UIImage?
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -29,10 +28,12 @@ struct TaskListDetailView: View {
                 Text(task.description)
                     .font(.body)
             }
-            if let image = task.image {
-                Image(uiImage: UIImage(cgImage: image))
-                    .resizable()
-                    .scaledToFit()
+            if task.isComplete {
+                if let image = task.image {
+                    Image(uiImage: UIImage(cgImage: image))
+                        .resizable()
+                        .scaledToFit()
+                }
             } else {
                 Button(action: {
                     PHPhotoLibrary.requestAuthorization { status in
@@ -49,8 +50,8 @@ struct TaskListDetailView: View {
                         .frame(maxWidth: .infinity)
                         .padding(.init(top: 7, leading: 0, bottom: 7, trailing: 0))
                         .background(RoundedRectangle(cornerRadius: 4))
-                }
-                )}
+                })
+            }
         }
         .sheet(isPresented: $showingPhotoPicker) {
             PhotoPicker(image: Binding(get: {
@@ -59,21 +60,28 @@ struct TaskListDetailView: View {
                 if let image = image,
                    let cgImage = image.cgImage {
                     task.set(cgImage, with: CLLocation())
-                    task.isComplete = true
+                    task.isComplete = task.image != nil
                 } else {
                     task.image = nil
-                    task.isComplete = false
                 }
-            })) 
+            }))
         }
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
         .padding(.init(top: 10, leading: 25, bottom: 10, trailing: 25))
     }
 }
 
+
 struct TaskListDetailView_Previews: PreviewProvider {
+    static var taskViewModel = TaskViewModel()
+    
     static var previews: some View {
-        TaskListDetailView(task: Task(title: "Show light novels",
-                               description: "Show my friends all of my light novels."))
+        let task = Task(title: "Show light novels", description: "Show my friends all of my light novels.")
+        taskViewModel.tasks.append(task)
+        
+        return TaskListDetailView(task: .constant(taskViewModel.tasks[0]))
+            .environmentObject(taskViewModel)
     }
 }
+
+
