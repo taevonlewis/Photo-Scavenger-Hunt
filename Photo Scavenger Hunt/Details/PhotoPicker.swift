@@ -11,8 +11,7 @@ import PhotosUI
 
 struct PhotoPicker: UIViewControllerRepresentable {
     @Environment(\.presentationMode) var presentationMode
-    @Binding var image: UIImage?
-    @Binding var imageCoordinates: CLLocationCoordinate2D?
+    var completionHandler: ((UIImage?, CLLocationCoordinate2D?) -> Void)?
     
     class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
         let parent: PhotoPicker
@@ -24,17 +23,25 @@ struct PhotoPicker: UIViewControllerRepresentable {
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             parent.presentationMode.wrappedValue.dismiss()
             
-            if let image = info[.originalImage] as? UIImage {
-                parent.image = image
+            var image: UIImage?
+            var coordinates: CLLocationCoordinate2D?
+            
+            if let selectedImage = info[.originalImage] as? UIImage {
+                image = selectedImage
                 print("Image set.")
             }
             
             if let asset = info[.phAsset] as? PHAsset {
-                if let coordinates = asset.location?.coordinate {
-                    parent.imageCoordinates = coordinates
-                    print("Image coordinates: \(coordinates)")
+                if let location = asset.location?.coordinate {
+                    coordinates = location
+                    print("Image coordinates: \(coordinates!)")
+                } else {
+                    print("No location found for the selected image.")
                 }
+            } else {
+                print("No PHAsset found in the info dictionary.")
             }
+            parent.completionHandler?(image, coordinates)
         }
         
         func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
