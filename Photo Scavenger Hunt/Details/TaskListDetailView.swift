@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MapKit
 import PhotosUI
 
 struct TaskListDetailView: View {
@@ -31,10 +32,9 @@ struct TaskListDetailView: View {
                     .font(.body)
             }
             if task.isComplete {
-                if let image = task.image {
-                    Image(uiImage: UIImage(cgImage: image))
-                        .resizable()
-                        .scaledToFit()
+                if let location = task.imageLocation, let image = task.image {
+                    MapView(location: location.coordinate, image: UIImage(cgImage: image))
+                        .frame(height: 200)
                 }
             } else {
                 Button(action: {
@@ -56,17 +56,21 @@ struct TaskListDetailView: View {
             }
         }
         .sheet(isPresented: $showingPhotoPicker) {
-            PhotoPicker(image: Binding(get: {
-                task.image.map { UIImage(cgImage: $0) }
-            }, set: { image in
+            PhotoPicker { (image, coordinates) in
                 if let image = image,
                    let cgImage = image.cgImage {
-                    task.set(cgImage, with: CLLocation(latitude: imageCoordinates?.latitude ?? 0, longitude: imageCoordinates?.longitude ?? 0))
+                    let location = CLLocation(latitude: coordinates?.latitude ?? 0, longitude: coordinates?.longitude ?? 0)
+                    task.set(cgImage, with: location)
                     task.isComplete = true
+                    if let coordinates = coordinates {
+                        print("Image coordinates set in TaskListDetailView: \(coordinates)")
+                    } else {
+                        print("Image coordinates not set in TaskListDetailView")
+                    }
                 } else {
                     task.image = nil
                 }
-            }), imageCoordinates: $imageCoordinates)
+            }
         }
         .onChange(of: task.isComplete) { newValue in
             if newValue {
