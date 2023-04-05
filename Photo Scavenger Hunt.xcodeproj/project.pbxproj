@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B37F6A5829DE2AF800215BDF /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37F6A5729DE2AF800215BDF /* MapView.swift */; };
+		B399DF9129DE3444004A8D8F /* ImageAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B399DF9029DE3444004A8D8F /* ImageAnnotationView.swift */; };
 		B3A5320E29D8B203008B27D9 /* Photo_Scavenger_HuntApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A5320D29D8B203008B27D9 /* Photo_Scavenger_HuntApp.swift */; };
 		B3A5321029D8B203008B27D9 /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A5320F29D8B203008B27D9 /* TaskListView.swift */; };
 		B3A5321229D8B204008B27D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3A5321129D8B204008B27D9 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		B37F6A5729DE2AF800215BDF /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		B399DF9029DE3444004A8D8F /* ImageAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnnotationView.swift; sourceTree = "<group>"; };
 		B3A5320A29D8B203008B27D9 /* Photo Scavenger Hunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Photo Scavenger Hunt.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3A5320D29D8B203008B27D9 /* Photo_Scavenger_HuntApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo_Scavenger_HuntApp.swift; sourceTree = "<group>"; };
 		B3A5320F29D8B203008B27D9 /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				B3A5321F29D94EEF008B27D9 /* TaskListDetailView.swift */,
 				B3A5322229D9EE60008B27D9 /* PhotoPicker.swift */,
 				B37F6A5729DE2AF800215BDF /* MapView.swift */,
+				B399DF9029DE3444004A8D8F /* ImageAnnotationView.swift */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 			files = (
 				B3A5322029D94EEF008B27D9 /* TaskListDetailView.swift in Sources */,
 				B37F6A5829DE2AF800215BDF /* MapView.swift in Sources */,
+				B399DF9129DE3444004A8D8F /* ImageAnnotationView.swift in Sources */,
 				B3A5321029D8B203008B27D9 /* TaskListView.swift in Sources */,
 				B3A5321D29D941D9008B27D9 /* Task.swift in Sources */,
 				B3A5322329D9EE60008B27D9 /* PhotoPicker.swift in Sources */,
