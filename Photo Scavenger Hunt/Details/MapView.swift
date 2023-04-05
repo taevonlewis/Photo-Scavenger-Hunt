@@ -26,7 +26,7 @@ struct MapView: UIViewRepresentable {
         annotation.image = image
         mapView.addAnnotation(annotation)
         
-        let region = MKCoordinateRegion(center: location, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
+        let region = MKCoordinateRegion(center: location, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         mapView.setRegion(region, animated: true)
         
         print("Location coordinates: \(location.latitude), \(location.longitude)")
@@ -58,7 +58,13 @@ struct MapView: UIViewRepresentable {
                 annotationView?.annotation = annotation
             }
             
-            annotationView?.image = customPointAnnotation.image
+            let imageAnnotation = ImageAnnotationView(image: customPointAnnotation.image ?? UIImage(systemName: "pin.fill")!)
+            let hostingController = UIHostingController(rootView: imageAnnotation)
+            hostingController.view.translatesAutoresizingMaskIntoConstraints = false
+            hostingController.view.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+            
+            annotationView?.frame = hostingController.view.frame
+            annotationView?.addSubview(hostingController.view)
             
             return annotationView
         }
