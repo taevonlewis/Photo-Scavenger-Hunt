@@ -11,6 +11,8 @@ import PhotosUI
 struct TaskListDetailView: View {
     @Binding var task: Task
     @State private var showingPhotoPicker = false
+    @State private var imageCoordinates: CLLocationCoordinate2D?
+    @State private var image: UIImage?
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -59,15 +61,24 @@ struct TaskListDetailView: View {
             }, set: { image in
                 if let image = image,
                    let cgImage = image.cgImage {
-                    task.set(cgImage, with: CLLocation())
-                    task.isComplete = task.image != nil
+                    task.set(cgImage, with: CLLocation(latitude: imageCoordinates?.latitude ?? 0, longitude: imageCoordinates?.longitude ?? 0))
+                    task.isComplete = true
                 } else {
                     task.image = nil
                 }
-            }))
+            }), imageCoordinates: $imageCoordinates)
+        }
+        .onChange(of: task.isComplete) { newValue in
+            if newValue {
+                showingPhotoPicker = false
+            }
         }
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
         .padding(.init(top: 10, leading: 25, bottom: 10, trailing: 25))
+    }
+    
+    private func updateUI() {
+        task.isComplete = task.image != nil
     }
 }
 
