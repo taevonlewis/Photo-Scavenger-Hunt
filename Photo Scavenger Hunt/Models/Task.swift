@@ -14,7 +14,7 @@ class Task: ObservableObject, Identifiable {
     let title: String
     let description: String
     @Published public internal(set) var image: CGImage?
-    private(set) var imageLocation: CLLocation?
+    @Published var imageLocation: CLLocation?
     @Published var isComplete: Bool {
         didSet {
             if image == nil {
@@ -32,6 +32,7 @@ class Task: ObservableObject, Identifiable {
     func set(_ image: CGImage, with location: CLLocation) {
         self.image = image
         self.imageLocation = location
+        print("Image set inside Task model: \(image)")
     }
 }
 
